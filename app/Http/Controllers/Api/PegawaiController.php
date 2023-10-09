@@ -8,6 +8,11 @@ use App\Models\Pegawai;
 
 class PegawaiController extends Controller
 {
+    function __construct()
+    {
+         $this->middleware('permission:product-list', ['only' => ['index']]);
+
+    }
     public function index()
     {
         $pegawais = Pegawai::all();
